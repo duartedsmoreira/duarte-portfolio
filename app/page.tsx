@@ -13,24 +13,23 @@ export default function Portfolio() {
       description:
         "Automated tracking of service-level agreements, reducing manual reporting by 30%. Features drill-through and real-time error ticket KPIs.",
       img: "/sla-dashboard.png",
-      icon: Activity,
+      Icon: Activity, // <--- Change this line
     },
     {
       title: "CRM Data Migration",
       description:
         "Transitioned data from Excel to CRM, improving data accuracy and governance. Developed mapping reports and data validation visualizations.",
       img: "/crm-dashboard.png",
-      icon: Database,
+      Icon: Database, // <--- Change this line
     },
     {
       title: "User Behavior Analytics",
       description:
         "Analyzed Google Analytics data for web and mobile apps. Built dashboards to track usage patterns and optimize onboarding flows.",
       img: "/analytics-dashboard.png",
-      icon: BarChart3,
+      Icon: BarChart3, // <--- Change this line
     },
   ];
-
   const experience = [
     {
       role: "IT Business Analyst",

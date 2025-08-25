@@ -20,13 +20,13 @@ type Project = {
 });
 
 export default function Portfolio() {
-  // The projects array now uses the strict 'Project' type
+  // The projects array now uses the strict 'Project' type and the CORRECT filenames
   const projects: Project[] = [
     {
       title: "SLA Monitoring Dashboard",
       description:
         "Automated tracking of service-level agreements, reducing manual reporting by 30%. Features drill-through and real-time error ticket KPIs.",
-      img: "/SLA Monitoring Dashboard.png",
+      img: "/sla-dashboard.png", // CORRECTED
       Icon: Activity,
     },
     {
@@ -34,11 +34,11 @@ export default function Portfolio() {
       description:
         "Developed and managed a suite of Power BI reports for operational monitoring, covering everything from high-level KPIs to detailed drill-through analysis.",
       images: [
-        "/Power BI Reports1.png",
-        "/Power BI Reports2.png",
-        "/Power BI Reports3.png",
-        "/Power BI Reports4.png",
-        "/Power BI Reports5.png",
+        "/powerbi-report-1.png", // CORRECTED
+        "/powerbi-report-2.png", // CORRECTED
+        "/powerbi-report-3.png", // CORRECTED
+        "/powerbi-report-4.png", // CORRECTED
+        "/powerbi-report-5.png", // CORRECTED
       ],
       Icon: BarChart3,
     },
@@ -46,7 +46,7 @@ export default function Portfolio() {
       title: "User Behavior Analytics",
       description:
         "Analyzed Google Analytics data for web and mobile apps. Built dashboards to track usage patterns and optimize onboarding flows.",
-      img: "/User Behavior Analytics.png",
+      img: "/analytics-dashboard.png", // CORRECTED
       Icon: BarChart3,
     },
   ];
@@ -345,7 +345,7 @@ export default function Portfolio() {
         <p className="text-gray-600 mb-3">Based in Lisbon • Open to remote/hybrid roles</p>
         <div className="flex justify-center gap-3">
           <Button asChild className="rounded-2xl">
-            <a href="mailto:duartetraud98@gmail.com"><Mail className="w-4 h-4 mr-2"/>Email Me</a>
+            <a href="mailto:duartetraud98@gmail.com"><Mail className="w-4 h-4 mr-2"/>Get in Touch</a>
           </Button>
           <Button asChild variant="secondary" className="rounded-2xl">
             <a href="https://www.linkedin.com/in/duarte-moreira-981339196/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -361,11 +361,11 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={( ) => setLightbox({ open: false })} // This makes the background clickable
+            onClick={( ) => setLightbox({ open: false })}
           >
             <div 
               className="relative max-w-5xl w-full" 
-              onClick={(e) => e.stopPropagation()} // This prevents the image click from closing the lightbox
+              onClick={(e) => e.stopPropagation()}
             >
               <Button
                 variant="secondary"

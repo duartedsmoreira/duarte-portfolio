@@ -163,7 +163,7 @@ export default function Portfolio() {
               <Card className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3 mb-3">
-                    <project.icon className="w-6 h-6 text-blue-600" />
+                    <project.Icon className="w-6 h-6 text-blue-600" />
                     <h3 className="text-lg font-semibold">{project.title}</h3>
                   </div>
                   <img

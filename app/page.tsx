@@ -1,11 +1,10 @@
 "use client";
 
-import { BarChart3, Database, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Database, Activity, Mail, Download, FileText, X } from "lucide-react";
+import { BarChart3, Database, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Portfolio() {
   const projects = [

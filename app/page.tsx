@@ -88,7 +88,6 @@ export default function Portfolio() {
     "Power BI", "DAX", "SQL", "Jira", "Confluence", "CRM", "Postman", "XML", "Google Analytics", "Excel", "Data Integration", "BPMN"
   ];
 
-  // THIS IS THE UPDATED GALLERY ARRAY
   const gallery = [
     { type: "image", src: "/powerbi-report-1.png", caption: "General KPIs and Project Submission Overview" },
     { type: "image", src: "/powerbi-report-2.png", caption: "Individual Self-Consumption Analysis with Filters" },
@@ -136,6 +135,7 @@ export default function Portfolio() {
           <a href="#home" className="font-semibold">Duarte Moreira</a>
           <div className="hidden sm:flex items-center gap-6 text-sm">
             <a href="#work" className="hover:text-blue-500 dark:hover:text-blue-400">Work</a>
+            <a href="#interactive-report" className="hover:text-blue-500 dark:hover:text-blue-400">Live Report</a>
             <a href="#resume" className="hover:text-blue-500 dark:hover:text-blue-400">CV</a>
             <a href="#gallery" className="hover:text-blue-500 dark:hover:text-blue-400">Gallery</a>
             <a href="#contact" className="hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
@@ -237,13 +237,32 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* INTERACTIVE REPORT SECTION WITH YOUR REAL IFRAME */}
+      <section id="interactive-report" className="max-w-6xl mx-auto px-6 mt-12">
+        <h2 className="text-2xl font-semibold mb-4">Interactive Power BI Report</h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+          This is a live, embedded Power BI report. Feel free to click, filter, and explore the data. (Note: This report uses anonymized or publicly available data for demonstration purposes.)
+        </p>
+        <div className="bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm">
+          <iframe 
+            title="Trabalho_BA_FINAL" 
+            width="100%" 
+            height="600" 
+            src="https://app.powerbi.com/view?r=eyJrIjoiZjI2ZDUwZDAtOWVhMC00MDRmLWIzNzAtODY2ODIyM2YyODM2IiwidCI6ImFkMjhjNjI1LWYyY2EtNGU5MS1iNmQ2LTE4OTIyYmM5MzkxYyIsImMiOjh9&pageName=ReportSection" 
+            frameBorder="0" 
+            allowFullScreen={true}
+            className="rounded-md"
+          ></iframe>
+        </div>
+      </section>
+
       <section id="resume" className="max-w-6xl mx-auto px-6 mt-12">
         <h2 className="text-2xl font-semibold mb-4">Curriculum Vitae</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
             <h3 className="font-semibold mb-2">Experience</h3>
             <div className="space-y-5">
-              {experience.map((job, i) => (
+              {experience.map((job, i ) => (
                 <div key={i} className="bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm">
                   <div className="flex items-center justify-between">
                     <p className="font-medium">{job.role}</p>

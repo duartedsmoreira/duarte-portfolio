@@ -20,7 +20,6 @@ type Project = {
 });
 
 export default function Portfolio() {
-  // THIS IS THE CORRECTED PROJECTS ARRAY
   const projects: Project[] = [
     {
       title: "SLA Monitoring Dashboard",
@@ -41,7 +40,7 @@ export default function Portfolio() {
       Icon: BarChart3,
     },
     {
-      title: "BPMN Process Modeling", // THIS IS THE CORRECTED OBJECT
+      title: "BPMN Process Modeling",
       description: "Designed and documented core business processes using BPMN to clarify workflows, identify bottlenecks, and standardize operations across departments.",
       images: [
         "/bpmn-1.png",
@@ -89,12 +88,15 @@ export default function Portfolio() {
     "Power BI", "DAX", "SQL", "Jira", "Confluence", "CRM", "Postman", "XML", "Google Analytics", "Excel", "Data Integration", "BPMN"
   ];
 
+  // THIS IS THE UPDATED GALLERY ARRAY
   const gallery = [
     { type: "image", src: "/powerbi-report-1.png", caption: "General KPIs and Project Submission Overview" },
     { type: "image", src: "/powerbi-report-2.png", caption: "Individual Self-Consumption Analysis with Filters" },
     { type: "image", src: "/powerbi-report-3.png", caption: "Work-in-Progress and Commissioning Funnel" },
     { type: "image", src: "/powerbi-report-4.png", caption: "SLA Analysis for Proposals and Contracts" },
     { type: "image", src: "/powerbi-report-5.png", caption: "Producer Contract SLA Timelines" },
+    { type: "image", src: "/bpmn-1.png", caption: "BPMN Diagram: Client Onboarding Process" },
+    { type: "image", src: "/bpmn-2.png", caption: "BPMN Diagram: Invoicing and Validation Workflow" },
   ];
 
   const [lightbox, setLightbox] = useState<{ open: boolean; type?: "image" | "video"; src?: string; caption?: string }>({

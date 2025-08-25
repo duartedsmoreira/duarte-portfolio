@@ -173,8 +173,10 @@ export default function Portfolio() {
               setCurrentImageIndex((prevIndex) => (prevIndex - 1 + (project.images?.length || 1)) % (project.images?.length || 1));
             };
         
-            const isCarousel = Array.isArray(project.images);
-            const currentImageSrc = isCarousel ? project.images[currentImageIndex] : project.img;
+            // This is the NEW, correct code block
+            const isCarousel = Array.isArray(project.images) && project.images.length > 0;
+            const currentImageSrc = isCarousel ? project.images[currentImageIndex] : project.img || "";
+
         
             return (
               <motion.div

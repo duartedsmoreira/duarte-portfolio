@@ -6,36 +6,51 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BarChart3, Database, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight } from "lucide-react";
 
+// Define a strict type for our project objects to satisfy TypeScript
+type Project = {
+  title: string;
+  description: string;
+  Icon: React.ElementType;
+} & ({
+  img: string;
+  images?: never; // Ensure 'images' does not exist if 'img' exists
+} | {
+  img?: never; // Ensure 'img' does not exist if 'images' exists
+  images: string[];
+});
+
 export default function Portfolio() {
-  const projects = [
+  // The projects array now uses the strict 'Project' type
+  const projects: Project[] = [
     {
       title: "SLA Monitoring Dashboard",
       description:
         "Automated tracking of service-level agreements, reducing manual reporting by 30%. Features drill-through and real-time error ticket KPIs.",
       img: "/sla-dashboard.png",
-      Icon: Activity, // <--- Change this line
+      Icon: Activity,
     },
     {
       title: "Power BI Reports",
       description:
         "Developed and managed a suite of Power BI reports for operational monitoring, covering everything from high-level KPIs to detailed drill-through analysis.",
-      images: [ // <--- Changed from img to images (an array)
+      images: [
         "/powerbi-report-1.png",
         "/powerbi-report-2.png",
         "/powerbi-report-3.png",
         "/powerbi-report-4.png",
         "/powerbi-report-5.png",
       ],
-      Icon: BarChart3, // Using BarChart3 as it's relevant to reports
+      Icon: BarChart3,
     },
     {
       title: "User Behavior Analytics",
       description:
         "Analyzed Google Analytics data for web and mobile apps. Built dashboards to track usage patterns and optimize onboarding flows.",
       img: "/analytics-dashboard.png",
-      Icon: BarChart3, // <--- Change this line
+      Icon: BarChart3,
     },
   ];
+
   const experience = [
     {
       role: "IT Business Analyst",
@@ -71,17 +86,7 @@ export default function Portfolio() {
   ];
 
   const skills = [
-    "Power BI",
-    "DAX",
-    "SQL",
-    "Jira",
-    "Confluence",
-    "CRM",
-    "Postman",
-    "XML",
-    "Google Analytics",
-    "Excel",
-    "Data Integration",
+    "Power BI", "DAX", "SQL", "Jira", "Confluence", "CRM", "Postman", "XML", "Google Analytics", "Excel", "Data Integration",
   ];
 
   const gallery = [
@@ -157,83 +162,97 @@ export default function Portfolio() {
           Visuals below are anonymized (dummy or blurred data). They demonstrate structure, UX, and the
           problem-solving approach without exposing sensitive information.
         </p>
-{/* This is the NEW code block to paste */}
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => {
-            // State for the image carousel, specific to each card
+            // This state is now correctly inside the map, so each card has its own state
             const [currentImageIndex, setCurrentImageIndex] = useState(0);
-        
-            const handleNext = (e: React.MouseEvent) => {
-              e.stopPropagation(); // Prevent the lightbox from opening
-              setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (project.images?.length || 1));
-            };
-        
-            const handlePrev = (e: React.MouseEvent) => {
-              e.stopPropagation(); // Prevent the lightbox from opening
-              setCurrentImageIndex((prevIndex) => (prevIndex - 1 + (project.images?.length || 1)) % (project.images?.length || 1));
-            };
-        
-            // This is the NEW, correct code block
-            const isCarousel = Array.isArray(project.images) && project.images.length > 0;
-            const currentImageSrc = isCarousel ? project.images[currentImageIndex] : project.img || "";
 
-        
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-              >
-                <Card className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full">
-                  <CardContent className="p-4 flex flex-col flex-grow">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <project.Icon className="w-6 h-6 text-blue-600" />
-                      <h3 className="text-lg font-semibold">{project.title}</h3>
-                    </div>
-                    
-                    {/* Image container */}
-                    <div 
-                      className="relative group rounded-xl mb-3 h-40 w-full cursor-pointer"
-                      onClick={() => setLightbox({ open: true, type: "image", src: currentImageSrc, caption: project.title })}
-                    >
-                      <AnimatePresence initial={false}>
-                        <motion.img
-                          key={currentImageSrc}
-                          src={currentImageSrc}
-                          alt={project.title}
-                          className="absolute inset-0 rounded-xl object-cover h-full w-full"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      </AnimatePresence>
-        
-                      {isCarousel && (
-                        <>
-                          {/* Prev Button */}
-                          <button onClick={handlePrev} className="absolute left-1 top-1/2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                            <ChevronLeft className="w-4 h-4" />
-                          </button>
-                          {/* Next Button */}
-                          <button onClick={handleNext} className="absolute right-1 top-1/2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                            <ChevronRight className="w-4 h-4" />
-                          </button>
-                          {/* Image counter */}
-                          <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs rounded-full px-2 py-0.5 z-10">
-                            {currentImageIndex + 1} / {project.images.length}
-                          </div>
-                        </>
-                      )}
-                    </div>
-                    
-                    <p className="text-sm text-gray-600 flex-grow">{project.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
+            // Logic for a single-image project
+            if (project.img) {
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                >
+                  <Card className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full">
+                    <CardContent className="p-4 flex flex-col flex-grow">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <project.Icon className="w-6 h-6 text-blue-600" />
+                        <h3 className="text-lg font-semibold">{project.title}</h3>
+                      </div>
+                      <img
+                        src={project.img}
+                        alt={project.title}
+                        className="rounded-xl mb-3 object-cover h-40 w-full cursor-pointer"
+                        onClick={() => setLightbox({ open: true, type: "image", src: project.img, caption: project.title })}
+                      />
+                      <p className="text-sm text-gray-600 flex-grow">{project.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            }
+
+            // Logic for a multi-image carousel project
+            if (project.images && project.images.length > 0) {
+              const handleNext = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+              };
+              const handlePrev = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+              };
+              const currentImageSrc = project.images[currentImageIndex];
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                >
+                  <Card className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full">
+                    <CardContent className="p-4 flex flex-col flex-grow">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <project.Icon className="w-6 h-6 text-blue-600" />
+                        <h3 className="text-lg font-semibold">{project.title}</h3>
+                      </div>
+                      <div
+                        className="relative group rounded-xl mb-3 h-40 w-full cursor-pointer"
+                        onClick={() => setLightbox({ open: true, type: "image", src: currentImageSrc, caption: project.title })}
+                      >
+                        <AnimatePresence initial={false}>
+                          <motion.img
+                            key={currentImageSrc}
+                            src={currentImageSrc}
+                            alt={project.title}
+                            className="absolute inset-0 rounded-xl object-cover h-full w-full"
+                            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}
+                          />
+                        </AnimatePresence>
+                        <button onClick={handlePrev} className="absolute left-1 top-1/2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button onClick={handleNext} className="absolute right-1 top-1/2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                        <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs rounded-full px-2 py-0.5 z-10">
+                          {currentImageIndex + 1} / {project.images.length}
+                        </div>
+                      </div>
+                      <p className="text-sm text-gray-600 flex-grow">{project.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            }
+
+            return null; // Fallback in case a project has neither img nor images
           })}
         </div>
       </section>
@@ -350,7 +369,7 @@ export default function Portfolio() {
               <Button
                 variant="secondary"
                 className="absolute -top-10 right-0 rounded-full"
-                onClick={() => setLightbox({ open: false })}
+                onClick={( ) => setLightbox({ open: false })}
               >
                 <X className="w-4 h-4" />
               </Button>

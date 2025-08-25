@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight, Sun, Moon } from "lucide-react";
+import { BarChart3, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight, Sun, Moon, Workflow } from "lucide-react"; // Added Workflow icon
 
 // Define a strict type for our project objects
 type Project = {
@@ -40,10 +40,13 @@ export default function Portfolio() {
       Icon: BarChart3,
     },
     {
-      title: "User Behavior Analytics",
-      description: "Analyzed Google Analytics data for web and mobile apps. Built dashboards to track usage patterns and optimize onboarding flows.",
-      img: "/analytics-dashboard.png",
-      Icon: BarChart3,
+      title: "BPMN Process Modeling", // UPDATED
+      description: "Designed and documented core business processes using BPMN to clarify workflows, identify bottlenecks, and standardize operations across departments.", // UPDATED
+      images: [
+        "/bpmn-1.png", // UPDATED
+        "/bpmn-2.png", // UPDATED
+      ],
+      Icon: Workflow, // UPDATED
     },
   ];
 
@@ -82,7 +85,7 @@ export default function Portfolio() {
   ];
 
   const skills = [
-    "Power BI", "DAX", "SQL", "Jira", "Confluence", "CRM", "Postman", "XML", "Google Analytics", "Excel", "Data Integration",
+    "Power BI", "DAX", "SQL", "Jira", "Confluence", "CRM", "Postman", "XML", "Google Analytics", "Excel", "Data Integration", "BPMN"
   ];
 
   const gallery = [
@@ -100,10 +103,23 @@ export default function Portfolio() {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
+    // On component mount, check for saved theme in localStorage or system preference
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else if (prefersDark) {
+      setTheme("dark");
+    }
+  }, []);
+
+  useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [theme]);
 

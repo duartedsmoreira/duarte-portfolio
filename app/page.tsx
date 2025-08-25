@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight, Sun, Moon, Workflow } from "lucide-react";
+import { BarChart3, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight, Sun, Moon, Workflow, Target, Layers } from "lucide-react";
 
 // Define a strict type for our project objects
 type Project = {
@@ -14,18 +14,28 @@ type Project = {
 } & ({
   img: string;
   images?: never;
+  stats?: never;
 } | {
   img?: never;
   images: string[];
+  stats?: never;
+} | {
+  img?: never;
+  images?: never;
+  stats: { value: string; label: string }[];
 });
 
 export default function Portfolio() {
   const projects: Project[] = [
     {
-      title: "SLA Monitoring Dashboard",
-      description: "Automated tracking of service-level agreements, reducing manual reporting by 30%. Features drill-through and real-time error ticket KPIs.",
-      img: "/sla-dashboard.png",
-      Icon: Activity,
+      title: "SLA Monitoring Automation",
+      description: "Designed and launched an automated system to track Service-Level Agreements, replacing manual reporting and providing real-time KPI monitoring for error tickets.",
+      Icon: Target,
+      stats: [
+        { value: "30%", label: "Manual Reporting Reduced" },
+        { value: "50%", label: "Faster Ticket Detection" },
+        { value: "100%", label: "Live Data Accuracy" },
+      ],
     },
     {
       title: "Power BI Reports",
@@ -47,6 +57,16 @@ export default function Portfolio() {
         "/bpmn-2.png",
       ],
       Icon: Workflow,
+    },
+    // UPDATED ARCHIMATE CARD (NOW A CAROUSEL)
+    {
+      title: "Enterprise Architecture Modeling",
+      description: "Modeled business processes and linked them to the underlying application and technology layers using ArchiMate to create a holistic view of the enterprise.",
+      images: [
+        "/archimate-onboarding.png",
+        "/archimate-invoicing.png",
+      ],
+      Icon: Layers,
     },
   ];
 
@@ -85,7 +105,7 @@ export default function Portfolio() {
   ];
 
   const skills = [
-    "Power BI", "DAX", "SQL", "Jira", "Confluence", "CRM", "Postman", "XML", "Google Analytics", "Excel", "Data Integration", "BPMN"
+    "Power BI", "DAX", "SQL", "Jira", "Confluence", "CRM", "Postman", "XML", "Google Analytics", "Excel", "Data Integration", "BPMN", "ArchiMate"
   ];
 
   const gallery = [
@@ -96,6 +116,8 @@ export default function Portfolio() {
     { type: "image", src: "/powerbi-report-5.png", caption: "Producer Contract SLA Timelines" },
     { type: "image", src: "/bpmn-1.png", caption: "BPMN Diagram: Client Onboarding Process" },
     { type: "image", src: "/bpmn-2.png", caption: "BPMN Diagram: Invoicing and Validation Workflow" },
+    { type: "image", src: "/archimate-onboarding.png", caption: "ArchiMate: Client Data Onboarding Architecture" },
+    { type: "image", src: "/archimate-invoicing.png", caption: "ArchiMate: Internal Invoicing Architecture" },
   ];
 
   const [lightbox, setLightbox] = useState<{ open: boolean; type?: "image" | "video"; src?: string; caption?: string }>({
@@ -187,10 +209,11 @@ export default function Portfolio() {
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
           Visuals below are anonymized (dummy or blurred data). They demonstrate structure, UX, and the problem-solving approach without exposing sensitive information.
         </p>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {projects.map((project, index) => {
             const [currentImageIndex, setCurrentImageIndex] = useState(0);
-            if (project.img) {
+            
+            if (project.stats) {
               return (
                 <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.15 }}>
                   <Card className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full bg-white dark:bg-gray-800/50">
@@ -199,13 +222,21 @@ export default function Portfolio() {
                         <project.Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                         <h3 className="text-lg font-semibold">{project.title}</h3>
                       </div>
-                      <img src={project.img} alt={project.title} className="rounded-xl mb-3 object-cover h-40 w-full cursor-pointer" onClick={() => setLightbox({ open: true, type: "image", src: project.img, caption: project.title })} />
+                      <div className="flex-grow grid grid-cols-3 gap-2 my-4 text-center">
+                        {project.stats.map(stat => (
+                          <div key={stat.label} className="bg-gray-100 dark:bg-gray-700/50 p-2 rounded-lg">
+                            <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">{stat.label}</p>
+                          </div>
+                        ))}
+                      </div>
                       <p className="text-sm text-gray-600 dark:text-gray-400 flex-grow">{project.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
               );
             }
+
             if (project.images && project.images.length > 0) {
               const handleNext = (e: React.MouseEvent) => { e.stopPropagation(); setCurrentImageIndex((prev) => (prev + 1) % project.images.length); };
               const handlePrev = (e: React.MouseEvent) => { e.stopPropagation(); setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length); };
@@ -237,7 +268,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* INTERACTIVE REPORT SECTION WITH YOUR REAL IFRAME */}
       <section id="interactive-report" className="max-w-6xl mx-auto px-6 mt-12">
         <h2 className="text-2xl font-semibold mb-4">Interactive Power BI Report</h2>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">

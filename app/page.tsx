@@ -26,7 +26,7 @@ export default function Portfolio() {
       title: "SLA Monitoring Dashboard",
       description:
         "Automated tracking of service-level agreements, reducing manual reporting by 30%. Features drill-through and real-time error ticket KPIs.",
-      img: "/sla-dashboard.png",
+      img: "/SLA Monitoring Dashboard.png",
       Icon: Activity,
     },
     {
@@ -34,11 +34,11 @@ export default function Portfolio() {
       description:
         "Developed and managed a suite of Power BI reports for operational monitoring, covering everything from high-level KPIs to detailed drill-through analysis.",
       images: [
-        "/powerbi-report-1.png",
-        "/powerbi-report-2.png",
-        "/powerbi-report-3.png",
-        "/powerbi-report-4.png",
-        "/powerbi-report-5.png",
+        "/Power BI Reports1.png",
+        "/Power BI Reports2.png",
+        "/Power BI Reports3.png",
+        "/Power BI Reports4.png",
+        "/Power BI Reports5.png",
       ],
       Icon: BarChart3,
     },
@@ -46,7 +46,7 @@ export default function Portfolio() {
       title: "User Behavior Analytics",
       description:
         "Analyzed Google Analytics data for web and mobile apps. Built dashboards to track usage patterns and optimize onboarding flows.",
-      img: "/analytics-dashboard.png",
+      img: "/User Behavior Analytics.png",
       Icon: BarChart3,
     },
   ];
@@ -164,10 +164,8 @@ export default function Portfolio() {
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => {
-            // This state is now correctly inside the map, so each card has its own state
             const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-            // Logic for a single-image project
             if (project.img) {
               return (
                 <motion.div
@@ -196,7 +194,6 @@ export default function Portfolio() {
               );
             }
 
-            // Logic for a multi-image carousel project
             if (project.images && project.images.length > 0) {
               const handleNext = (e: React.MouseEvent) => {
                 e.stopPropagation();
@@ -252,7 +249,7 @@ export default function Portfolio() {
               );
             }
 
-            return null; // Fallback in case a project has neither img nor images
+            return null;
           })}
         </div>
       </section>
@@ -364,12 +361,16 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={( ) => setLightbox({ open: false })} // This makes the background clickable
           >
-            <div className="relative max-w-5xl w-full">
+            <div 
+              className="relative max-w-5xl w-full" 
+              onClick={(e) => e.stopPropagation()} // This prevents the image click from closing the lightbox
+            >
               <Button
                 variant="secondary"
                 className="absolute -top-10 right-0 rounded-full"
-                onClick={( ) => setLightbox({ open: false })}
+                onClick={() => setLightbox({ open: false })}
               >
                 <X className="w-4 h-4" />
               </Button>

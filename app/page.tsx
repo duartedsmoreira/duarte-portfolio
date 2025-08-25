@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight, Sun, Moon, Workflow } from "lucide-react"; // Added Workflow icon
+import { BarChart3, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight, Sun, Moon, Workflow } from "lucide-react";
 
 // Define a strict type for our project objects
 type Project = {
@@ -20,6 +20,7 @@ type Project = {
 });
 
 export default function Portfolio() {
+  // THIS IS THE CORRECTED PROJECTS ARRAY
   const projects: Project[] = [
     {
       title: "SLA Monitoring Dashboard",
@@ -40,13 +41,13 @@ export default function Portfolio() {
       Icon: BarChart3,
     },
     {
-      title: "BPMN Process Modeling", // UPDATED
-      description: "Designed and documented core business processes using BPMN to clarify workflows, identify bottlenecks, and standardize operations across departments.", // UPDATED
+      title: "BPMN Process Modeling", // THIS IS THE CORRECTED OBJECT
+      description: "Designed and documented core business processes using BPMN to clarify workflows, identify bottlenecks, and standardize operations across departments.",
       images: [
-        "/bpmn-1.png", // UPDATED
-        "/bpmn-2.png", // UPDATED
+        "/bpmn-1.png",
+        "/bpmn-2.png",
       ],
-      Icon: Workflow, // UPDATED
+      Icon: Workflow,
     },
   ];
 
@@ -103,7 +104,6 @@ export default function Portfolio() {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    // On component mount, check for saved theme in localStorage or system preference
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     if (savedTheme) {

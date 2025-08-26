@@ -58,7 +58,6 @@ export default function Portfolio() {
       ],
       Icon: Workflow,
     },
-    // UPDATED ARCHIMATE CARD (NOW A CAROUSEL)
     {
       title: "Enterprise Architecture Modeling",
       description: "Modeled business processes and linked them to the underlying application and technology layers using ArchiMate to create a holistic view of the enterprise.",
@@ -120,7 +119,7 @@ export default function Portfolio() {
     { type: "image", src: "/archimate-invoicing.png", caption: "ArchiMate: Internal Invoicing Architecture" },
   ];
 
-  const [lightbox, setLightbox] = useState<{ open: boolean; type?: "image" | "video"; src?: string; caption?: string }>({
+  const [lightbox, setLightbox] = useState<{ open: boolean; type?: "image" | "video"; src?: string; caption?: string }> ({
     open: false,
   });
 
@@ -249,7 +248,7 @@ export default function Portfolio() {
                         <project.Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                         <h3 className="text-lg font-semibold">{project.title}</h3>
                       </div>
-                      <div className="relative group rounded-xl mb-3 h-40 w-full cursor-pointer" onClick={() => setLightbox({ open: true, type: "image", src: currentImageSrc, caption: project.title })}>
+                      <div className="relative group rounded-xl mb-3 h-40 w-full cursor-pointer" onClick={() => setLightbox({ open: true, type: "image", src: currentImageSrc, caption: project.title })}> 
                         <AnimatePresence initial={false}>
                           <motion.img key={currentImageSrc} src={currentImageSrc} alt={project.title} className="absolute inset-0 rounded-xl object-cover h-full w-full" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} />
                         </AnimatePresence>
@@ -364,7 +363,7 @@ export default function Portfolio() {
                 <X className="w-4 h-4" />
               </Button>
               {lightbox.type === "image" ? (
-                <img src={lightbox.src} alt={lightbox.caption} className="w-full rounded-lg shadow-2xl" />
+                <img src={lightbox.src} alt={lightbox.caption} className="w-full rounded-lg shadow-2xl object-contain max-h-[85vh] mx-auto" />
               ) : (
                 <video src={lightbox.src} controls className="w-full rounded-lg shadow-2xl" />
               )}

@@ -242,7 +242,7 @@ export default function Portfolio() {
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
-  };
+  }
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 dark:from-gray-900 dark:to-gray-800 dark:text-gray-200 transition-colors duration-300">
       <nav className="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-700">

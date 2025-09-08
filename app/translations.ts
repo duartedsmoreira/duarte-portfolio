@@ -61,7 +61,7 @@ export const translations = {
     "IT Business Analyst & Power BI Specialist": "Analista de Negócio de TI e Especialista em Power BI",
     "I turn messy data into clear decisions. I build reliable data models, actionable dashboards, and user-friendly analytics that improve processes and drive outcomes.": "Transformo dados complexos em decisões claras. Construo modelos de dados fiáveis, dashboards acionáveis e análises de fácil utilização que melhoram processos e impulsionam resultados.",
     "View CV": "Ver CV",
-    "Download PDF": "Descarregar PDF",
+    "Download PDF": "Transferir PDF",
     "Selected Work": "Trabalho Selecionado",
     "Visuals below are anonymized (dummy or blurred data). They demonstrate structure, UX, and the problem-solving approach without exposing sensitive information.": "Os visuais abaixo são anonimizados (dados fictícios ou desfocados). Demonstram a estrutura, a experiência do utilizador e a abordagem de resolução de problemas sem expor informações sensíveis.",
     "SLA Monitoring Automation": "Automação de Monitorização de SLA",

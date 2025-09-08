@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { BarChart3, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight, Sun, Moon, Workflow, Target, Layers, Globe } from "lucide-react";
 import { translations, Language } from "./translations";
 
-// Define a strict type for our project objects
 type Project = {
   title: { en: string; pt: string; fr: string };
   description: { en: string; pt: string; fr: string };
@@ -242,6 +241,7 @@ export default function Portfolio() {
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
+  };
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 dark:from-gray-900 dark:to-gray-800 dark:text-gray-200 transition-colors duration-300">
@@ -330,5 +330,54 @@ export default function Portfolio() {
                           </div>
                         ))}
                       </div>
-                      <p className="text-sm text-
-(Content truncated due to size limit. Use page ranges or line ranges to read remaining content)
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{project.description[language]}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            }
+
+            if (project.images) {
+              return (
+                <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.15 }}>
+                  <Card className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full bg-white dark:bg-gray-800/50">
+                    <CardContent className="p-4 flex flex-col flex-grow">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <project.Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        <h3 className="text-lg font-semibold">{project.title[language]}</h3>
+                      </div>
+                      <div className="relative flex-grow my-4">
+                        <img src={project.images[currentImageIndex]} alt={project.title[language]} className="rounded-lg object-cover w-full h-40 cursor-pointer" onClick={() => setLightbox({ open: true, type: 'image', src: project.images[currentImageIndex], caption: project.title[language] })}/>
+                        {project.images.length > 1 && (
+                          <>
+                            <Button size="icon" variant="ghost" className="absolute left-1 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-black/30 hover:bg-black/50 text-white" onClick={() => setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length)}><ChevronLeft className="h-5 w-5"/></Button>
+                            <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-black/30 hover:bg-black/50 text-white" onClick={() => setCurrentImageIndex((prev) => (prev + 1) % project.images.length)}><ChevronRight className="h-5 w-5"/></Button>
+                          </>
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{project.description[language]}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            }
+
+            return null;
+          })}
+        </div>
+      </section>
+
+      <AnimatePresence>
+        {lightbox.open && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center" onClick={() => setLightbox({ open: false })}>
+            <div className="relative max-w-4xl max-h-[90vh] p-4" onClick={(e) => e.stopPropagation()}>
+              <img src={lightbox.src} alt={lightbox.caption} className="max-w-full max-h-[85vh] object-contain rounded-lg"/>
+              <p className="text-white text-center mt-2">{lightbox.caption}</p>
+              <Button size="icon" variant="ghost" className="absolute -top-2 -right-2 h-10 w-10 rounded-full bg-white/20 hover:bg-white/30 text-white" onClick={() => setLightbox({ open: false })}><X className="h-6 w-6"/></Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}

@@ -389,7 +389,7 @@ export default function Portfolio() {
         <h2 className="text-2xl font-semibold mb-4">{translations[language]["Curriculum Vitae"]}</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-8">
-            {experience.map((exp, index ) => (
+            {experience.map((exp, index) => (
               <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}>
                 <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400">{exp.role[language]}</h3>
                 <p className="text-lg font-semibold">{exp.company} - {exp.loc[language]}</p>

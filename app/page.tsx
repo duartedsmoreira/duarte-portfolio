@@ -371,7 +371,7 @@ export default function Portfolio() {
       <section id="interactive-report" className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-2xl font-semibold mb-4">{translations[language]["Interactive Power BI Report"]}</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          {translations[language]["This is a live, embedded Power BI report. Feel free to click, filter, and explore the data. (Note: This report uses dummy data for demonstration purposes.)"]}
+          {translations[language]["This is a live, embedded Power BI report. Feel free to click, filter, and explore the data. (Note: This report uses anonymized or publicly available data for demonstration purposes.)"]}
         </p>
         <div className="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-xl">
           <iframe

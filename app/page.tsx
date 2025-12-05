@@ -37,7 +37,7 @@ export default function Portfolio() {
       description: {
         en: "Designed and launched an automated system to track Service-Level Agreements, replacing manual reporting and providing real-time KPI monitoring for error tickets.",
         pt: "Concebi e lancei um sistema automatizado para monitorizar Acordos de Nível de Serviço, substituindo relatórios manuais e fornecendo monitorização de KPI em tempo real para tickets de erro.",
-        fr: "Conçu et lancé un système automatisé pour suivre les Accords de Niveau de Service, remplaçant les rapports manuels et fournissant une surveillance KPI en temps réel pour les tickets d\'erreur.",
+        fr: "Conçu et lancé un système automatisé pour suivre les Accords de Niveau de Service, remplaçant les rapports manuels et fournissant une surveillance KPI en temps réel pour les tickets d'erreur.",
       },
       Icon: Target,
       stats: [
@@ -55,7 +55,7 @@ export default function Portfolio() {
       description: {
         en: "Developed and managed a suite of Power BI reports for operational monitoring, covering everything from high-level KPIs to detailed drill-through analysis.",
         pt: "Desenvolvi e geri um conjunto de relatórios Power BI para monitorização operacional, cobrindo desde KPIs de alto nível até análises detalhadas de drill-through.",
-        fr: "Développé et géré une suite de rapports Power BI pour la surveillance opérationnelle, couvrant tout, des KPI de haut niveau à l\'analyse détaillée par exploration.",
+        fr: "Développé et géré une suite de rapports Power BI pour la surveillance opérationnelle, couvrant tout, des KPI de haut niveau à l'analyse détaillée par exploration.",
       },
       images: [
         "/powerbi-report-1.png",
@@ -75,7 +75,7 @@ export default function Portfolio() {
       description: {
         en: "Designed and documented core business processes using BPMN to clarify workflows, identify bottlenecks, and standardize operations across departments.",
         pt: "Concebi e documentei processos de negócio centrais usando BPMN para clarificar fluxos de trabalho, identificar gargalos e padronizar operações entre departamentos.",
-        fr: "Conçu et documenté les processus métier de base à l\'aide de BPMN pour clarifier les flux de travail, identifier les goulots d\'étranglement et standardiser les opérations entre les départements.",
+        fr: "Conçu et documenté les processus métier de base à l'aide de BPMN pour clarifier les flux de travail, identifier les goulots d'étranglement et standardiser les opérations entre les départements.",
       },
       images: [
         "/bpmn-1.png",
@@ -87,12 +87,12 @@ export default function Portfolio() {
       title: {
         en: "Enterprise Architecture Modeling",
         pt: "Modelagem de Arquitetura Empresarial",
-        fr: "Modélisation d\'Architecture d\'Entreprise",
+        fr: "Modélisation d'Architecture d'Entreprise",
       },
       description: {
         en: "Modeled business processes and linked them to the underlying application and technology layers using ArchiMate to create a holistic view of the enterprise.",
         pt: "Modelei processos de negócio e liguei-os às camadas de aplicação e tecnologia subjacentes usando ArchiMate para criar uma visão holística da empresa.",
-        fr: "Modélisé les processus métier et les a liés aux couches d\'application et de technologie sous-jacentes à l\'aide d\'ArchiMate pour créer une vue holistique de l\'entreprise.",
+        fr: "Modélisé les processus métier et les a liés aux couches d'application et de technologie sous-jacentes à l'aide d'ArchiMate pour créer une vue holistique de l'entreprise.",
       },
       images: [
         "/archimate-onboarding.png",
@@ -120,17 +120,17 @@ export default function Portfolio() {
         {
           en: "Managed three Power BI reports; migrated data from Excel to CRM with accurate mapping.",
           pt: "Geri três relatórios Power BI; migrei dados do Excel para o CRM com mapeamento preciso.",
-          fr: "Géré trois rapports Power BI; migré des données d\'Excel vers le CRM avec un mappage précis.",
+          fr: "Géré trois rapports Power BI; migré des données d'Excel vers le CRM avec un mappage précis.",
         },
         {
           en: "Monitored error tickets and SLAs; validated data against Solarlog API.",
           pt: "Monitorizei tickets de erro e SLAs; validei dados contra a API Solarlog.",
-          fr: "Surveillé les tickets d\'erreur et les SLA; validé les données par rapport à l\'API Solarlog.",
+          fr: "Surveillé les tickets d'erreur et les SLA; validé les données par rapport à l'API Solarlog.",
         },
         {
           en: "Analyzed Google Analytics for web/mobile; led data integration, billing & onboarding.",
           pt: "Analisei o Google Analytics para web/mobile; liderei a integração de dados, faturação e onboarding.",
-          fr: "Analysé Google Analytics pour le web/mobile; dirigé l\'intégration des données, la facturation et l\'intégration.",
+          fr: "Analysé Google Analytics pour le web/mobile; dirigé l'intégration des données, la facturation et l'intégration.",
         },
       ],
     },
@@ -151,7 +151,7 @@ export default function Portfolio() {
         {
           en: "Gathered requirements and executed test cases for a banking insurance program.",
           pt: "Reuni requisitos e executei casos de teste para um programa de seguros bancários.",
-          fr: "Recueilli les exigences et exécuté les cas de test pour un programme d\'assurance bancaire.",
+          fr: "Recueilli les exigences et exécuté les cas de test pour un programme d'assurance bancaire.",
         },
         {
           en: "Owned Jira/Confluence test documentation and daily standups to unblock issues.",
@@ -368,6 +368,95 @@ export default function Portfolio() {
         </div>
       </section>
 
+      <section id="interactive-report" className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Interactive Report"]}</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-6">
+          {translations[language]["This section demonstrates my ability to integrate live, interactive Power BI reports into a web environment. The report below is a dummy example showcasing data visualization and filtering capabilities."]}
+        </p>
+        <div className="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-xl">
+          <iframe
+            title="Interactive Power BI Report (Dummy Data)"
+            width="100%"
+            height="100%"
+            src="https://app.powerbi.com/view?r=eyJrIjoiYmQ0ZTIzYjctYjY3Yy00YjJkLWE3YjItY2Y3YjU1ZTA5YjQ3IiwidCI6IjQ1M2Q0Y2Y2LTc3NjItNDg3Zi1iYjY3LTJkYjQ2YjE3ZTI5ZiIsImMiOjl9"
+            frameBorder="0"
+            allowFullScreen={true}
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="resume" className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Curriculum Vitae"]}</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="md:col-span-2 space-y-8">
+            {experience.map((exp, index) => (
+              <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}>
+                <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400">{exp.role[language]}</h3>
+                <p className="text-lg font-semibold">{exp.company} - {exp.loc[language]}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{exp.dates}</p>
+                <ul className="list-disc ml-5 space-y-2 text-gray-700 dark:text-gray-300">
+                  {exp.bullets.map((bullet, bIndex) => (
+                    <li key={bIndex}>{bullet[language]}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+          <div className="space-y-6">
+            <Card className="rounded-2xl shadow-md">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3">Skills</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((s) => (
+                    <span key={s} className="text-sm bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 rounded-full px-3 py-1 font-medium">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="rounded-2xl shadow-md">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3">Education</h3>
+                <p className="font-semibold">MSc in Business Analytics</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Nova School of Business and Economics</p>
+                <p className="font-semibold mt-4">BSc in Management</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Nova School of Business and Economics</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Gallery"]}</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-6">
+          {translations[language]["A collection of visual artifacts from my projects, including Power BI dashboards, BPMN diagrams, and ArchiMate models."]}
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {gallery.map((item, index) => (
+            <motion.div key={index} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.05 }} className="aspect-square rounded-lg overflow-hidden shadow-lg cursor-pointer hover:shadow-xl transition" onClick={() => setLightbox({ open: true, type: item.type as "image" | "video", src: item.src, caption: item.caption })}>
+              <img src={item.src} alt={item.caption} className="w-full h-full object-cover"/>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="max-w-6xl mx-auto px-6 py-12 text-center">
+        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Get in Touch"]}</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+          {translations[language]["I am currently open to new opportunities and collaborations. Feel free to reach out!"]}
+        </p>
+        <div className="flex justify-center gap-4">
+          <Button asChild size="lg" className="rounded-2xl">
+            <a href="mailto:duartetraud98@gmail.com"><Mail className="w-5 h-5 mr-2"/>duartetraud98@gmail.com</a>
+          </Button>
+          <Button asChild size="lg" variant="secondary" className="rounded-2xl">
+            <a href="/duarte-moreira-cv.pdf" download><Download className="w-5 h-5 mr-2"/>{translations[language]["Download CV"]}</a>
+          </Button>
+        </div>
+      </section>
+
       <AnimatePresence>
         {lightbox.open && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center" onClick={() => setLightbox({ open: false })}>
@@ -382,5 +471,3 @@ export default function Portfolio() {
     </div>
   );
 }
-
-

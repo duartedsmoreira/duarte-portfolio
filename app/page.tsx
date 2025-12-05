@@ -371,7 +371,7 @@ export default function Portfolio() {
       <section id="interactive-report" className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-2xl font-semibold mb-4">{translations[language]["Interactive Power BI Report"]}</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          {translations[language]["This section demonstrates my ability to integrate live, interactive Power BI reports into a web environment. The report below is a dummy example showcasing data visualization and filtering capabilities."]}
+          {translations[language]["This is a live, embedded Power BI report. Feel free to click, filter, and explore the data. (Note: This report uses dummy data for demonstration purposes.)"]}
         </p>
         <div className="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-xl">
           <iframe
@@ -389,7 +389,7 @@ export default function Portfolio() {
         <h2 className="text-2xl font-semibold mb-4">{translations[language]["Curriculum Vitae"]}</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-8">
-            {experience.map((exp, index) => (
+            {experience.map((exp, index ) => (
               <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}>
                 <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400">{exp.role[language]}</h3>
                 <p className="text-lg font-semibold">{exp.company} - {exp.loc[language]}</p>

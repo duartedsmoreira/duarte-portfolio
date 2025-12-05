@@ -369,7 +369,7 @@ export default function Portfolio() {
       </section>
 
       <section id="interactive-report" className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Interactive Report"]}</h2>
+        <h2 className="text-2xl font-semibold mb-4">{translations[language]["InteractiveReport"]}</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
           {translations[language]["This section demonstrates my ability to integrate live, interactive Power BI reports into a web environment. The report below is a dummy example showcasing data visualization and filtering capabilities."]}
         </p>

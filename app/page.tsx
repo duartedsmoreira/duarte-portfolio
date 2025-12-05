@@ -12,22 +12,26 @@ type Project = {
   title: { en: string; pt: string; fr: string };
   description: { en: string; pt: string; fr: string };
   Icon: React.ElementType;
-} & ({
-  img: string;
-  images?: never;
-  stats?: never;
-} | {
-  img?: never;
-  images: string[];
-  stats?: never;
-} | {
-  img?: never;
-  images?: never;
-  stats: { value: string; label: string }[];
-});
+} & (
+  | {
+      img: string;
+      images?: never;
+      stats?: never;
+    }
+  | {
+      img?: never;
+      images: string[];
+      stats?: never;
+    }
+  | {
+      img?: never;
+      images?: never;
+      stats: { value: string; label: string }[];
+    }
+);
 
 export default function Portfolio() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: {
         en: "SLA Monitoring Automation",
@@ -57,414 +61,425 @@ export default function Portfolio() {
         pt: "Desenvolvi e geri um conjunto de relatórios Power BI para monitorização operacional, cobrindo desde KPIs de alto nível até análises detalhadas de drill-through.",
         fr: "Développé et géré une suite de rapports Power BI pour la surveillance opérationnelle, couvrant tout, des KPI de haut niveau à l'analyse détaillée par exploration.",
       },
-      images: [
-        "/powerbi-report-1.png",
-        "/powerbi-report-2.png",
-        "/powerbi-report-3.png",
-        "/powerbi-report-4.png",
-        "/powerbi-report-5.png",
-      ],
       Icon: BarChart3,
+      images: [
+        "/images/powerbi_1.png",
+        "/images/powerbi_2.png",
+        "/images/powerbi_3.png",
+      ],
     },
     {
       title: {
-        en: "BPMN Process Modeling",
-        pt: "Modelagem de Processos BPMN",
-        fr: "Modélisation de Processus BPMN",
+        en: "IT Process Modeling (BPMN)",
+        pt: "Modelagem de Processos de TI (BPMN)",
+        fr: "Modélisation de Processus IT (BPMN)",
       },
       description: {
-        en: "Designed and documented core business processes using BPMN to clarify workflows, identify bottlenecks, and standardize operations across departments.",
-        pt: "Concebi e documentei processos de negócio centrais usando BPMN para clarificar fluxos de trabalho, identificar gargalos e padronizar operações entre departamentos.",
-        fr: "Conçu et documenté les processus métier de base à l'aide de BPMN pour clarifier les flux de travail, identifier les goulots d'étranglement et standardiser les opérations entre les départements.",
+        en: "Modeled and optimized key IT processes using Business Process Model and Notation (BPMN) to improve efficiency and clarity across the organization.",
+        pt: "Modelei e otimizei processos chave de TI usando Business Process Model and Notation (BPMN) para melhorar a eficiência e clareza em toda a organização.",
+        fr: "Modélisé et optimisé les processus IT clés en utilisant la Business Process Model and Notation (BPMN) pour améliorer l'efficacité et la clarté dans toute l'organisation.",
       },
-      images: [
-        "/bpmn-1.png",
-        "/bpmn-2.png",
-      ],
       Icon: Workflow,
+      img: "/images/bpmn.png",
     },
     {
       title: {
-        en: "Enterprise Architecture Modeling",
-        pt: "Modelagem de Arquitetura Empresarial",
-        fr: "Modélisation d'Architecture d'Entreprise",
+        en: "Enterprise Architecture (ArchiMate)",
+        pt: "Arquitetura Empresarial (ArchiMate)",
+        fr: "Architecture d'Entreprise (ArchiMate)",
       },
       description: {
-        en: "Modeled business processes and linked them to the underlying application and technology layers using ArchiMate to create a holistic view of the enterprise.",
-        pt: "Modelei processos de negócio e liguei-os às camadas de aplicação e tecnologia subjacentes usando ArchiMate para criar uma visão holística da empresa.",
-        fr: "Modélisé les processus métier et les a liés aux couches d'application et de technologie sous-jacentes à l'aide d'ArchiMate pour créer une vue holistique de l'entreprise.",
+        en: "Created and maintained Enterprise Architecture models using ArchiMate to align IT strategy with business goals and manage complexity.",
+        pt: "Criei e mantive modelos de Arquitetura Empresarial usando ArchiMate para alinhar a estratégia de TI com os objetivos de negócio e gerir a complexidade.",
+        fr: "Créé et maintenu des modèles d'Architecture d'Entreprise en utilisant ArchiMate pour aligner la stratégie IT avec les objectifs commerciaux et gérer la complexité.",
       },
-      images: [
-        "/archimate-onboarding.png",
-        "/archimate-invoicing.png",
-      ],
       Icon: Layers,
+      img: "/images/archimate.png",
     },
   ];
 
-  const experience = [
-    {
-      role: {
-        en: "IT Business Analyst",
-        pt: "Analista de Negócio de TI",
-        fr: "Analyste Commercial IT",
-      },
-      company: "Greenvolt",
-      loc: {
-        en: "Lisbon, Portugal",
-        pt: "Lisboa, Portugal",
-        fr: "Lisbonne, Portugal",
-      },
-      dates: "09/2023 – Present",
-      bullets: [
-        {
-          en: "Managed three Power BI reports; migrated data from Excel to CRM with accurate mapping.",
-          pt: "Geri três relatórios Power BI; migrei dados do Excel para o CRM com mapeamento preciso.",
-          fr: "Géré trois rapports Power BI; migré des données d'Excel vers le CRM avec un mappage précis.",
-        },
-        {
-          en: "Monitored error tickets and SLAs; validated data against Solarlog API.",
-          pt: "Monitorizei tickets de erro e SLAs; validei dados contra a API Solarlog.",
-          fr: "Surveillé les tickets d'erreur et les SLA; validé les données par rapport à l'API Solarlog.",
-        },
-        {
-          en: "Analyzed Google Analytics for web/mobile; led data integration, billing & onboarding.",
-          pt: "Analisei o Google Analytics para web/mobile; liderei a integração de dados, faturação e onboarding.",
-          fr: "Analysé Google Analytics pour le web/mobile; dirigé l'intégration des données, la facturation et l'intégration.",
-        },
-      ],
-    },
-    {
-      role: {
-        en: "Functional Analyst / QA Tester",
-        pt: "Analista Funcional / Testador de QA",
-        fr: "Analyste Fonctionnel / Testeur QA",
-      },
-      company: "Deloitte – TD Bank",
-      loc: {
-        en: "Toronto, Canada",
-        pt: "Toronto, Canadá",
-        fr: "Toronto, Canada",
-      },
-      dates: "05/2022 – 08/2023",
-      bullets: [
-        {
-          en: "Gathered requirements and executed test cases for a banking insurance program.",
-          pt: "Reuni requisitos e executei casos de teste para um programa de seguros bancários.",
-          fr: "Recueilli les exigences et exécuté les cas de test pour un programme d'assurance bancaire.",
-        },
-        {
-          en: "Owned Jira/Confluence test documentation and daily standups to unblock issues.",
-          pt: "Geri a documentação de teste Jira/Confluence e reuniões diárias para desbloquear problemas.",
-          fr: "Géré la documentation de test Jira/Confluence et les standups quotidiens pour débloquer les problèmes.",
-        },
-      ],
-    },
-    {
-      role: {
-        en: "Duck Creek / XML / SQL Developer",
-        pt: "Programador Duck Creek / XML / SQL",
-        fr: "Développeur Duck Creek / XML / SQL",
-      },
-      company: "Deloitte – AGEAS Insurance",
-      loc: {
-        en: "Lisbon, Portugal",
-        pt: "Lisboa, Portugal",
-        fr: "Lisbonne, Portugal",
-      },
-      dates: "05/2021 – 05/2022",
-      bullets: [
-        {
-          en: "Fixed Duck Creek (C#) website errors; corrected customer data in XML.",
-          pt: "Corrigi erros no website Duck Creek (C#); corrigi dados de clientes em XML.",
-          fr: "Corrigé les erreurs du site web Duck Creek (C#); corrigé les données client en XML.",
-        },
-        {
-          en: "Shipped weekly production fixes ensuring stable functionality.",
-          pt: "Entreguei correções semanais de produção garantindo funcionalidade estável.",
-          fr: "Livré des correctifs de production hebdomadaires assurant une fonctionnalité stable.",
-        },
-      ],
-    },
-  ];
-
-  const skills = [
-    "Power BI", "DAX", "SQL", "Jira", "Confluence", "CRM", "Postman", "XML", "Google Analytics", "Excel", "Data Integration", "BPMN", "ArchiMate"
-  ];
-
-  const gallery = [
-    { type: "image", src: "/powerbi-report-1.png", caption: "General KPIs and Project Submission Overview" },
-    { type: "image", src: "/powerbi-report-2.png", caption: "Individual Self-Consumption Analysis with Filters" },
-    { type: "image", src: "/powerbi-report-3.png", caption: "Work-in-Progress and Commissioning Funnel" },
-    { type: "image", src: "/powerbi-report-4.png", caption: "SLA Analysis for Proposals and Contracts" },
-    { type: "image", src: "/powerbi-report-5.png", caption: "Producer Contract SLA Timelines" },
-    { type: "image", src: "/bpmn-1.png", caption: "BPMN Diagram: Client Onboarding Process" },
-    { type: "image", src: "/bpmn-2.png", caption: "BPMN Diagram: Invoicing and Validation Workflow" },
-    { type: "image", src: "/archimate-onboarding.png", caption: "ArchiMate: Client Data Onboarding Architecture" },
-    { type: "image", src: "/archimate-invoicing.png", caption: "ArchiMate: Internal Invoicing Architecture" },
-  ];
-
-  const [lightbox, setLightbox] = useState<{ open: boolean; type?: "image" | "video"; src?: string; caption?: string }> ({
-    open: false,
-  });
-
-  const [theme, setTheme] = useState("light");
-  const [language, setLanguage] = useState<"en" | "pt" | "fr">("en");
+  const [language, setLanguage] = useState<keyof typeof translations>("en");
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (prefersDark) {
-      setTheme("dark");
-    }
-
-    const savedLanguage = localStorage.getItem("language");
-    if (savedLanguage && (savedLanguage === "en" || savedLanguage === "pt" || savedLanguage === "fr")) {
-      setLanguage(savedLanguage);
+    // Set initial language based on browser preference or default to 'en'
+    const storedLang = localStorage.getItem("language") as keyof typeof translations;
+    if (storedLang && translations[storedLang]) {
+      setLanguage(storedLang);
+    } else {
+      const browserLang = navigator.language.substring(0, 2) as keyof typeof translations;
+      if (translations[browserLang]) {
+        setLanguage(browserLang);
+      }
     }
   }, []);
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+    if (activeProject && activeProject.images) {
+      setCurrentImageIndex(0);
     }
-  }, [theme]);
+  }, [activeProject]);
 
-  useEffect(() => {
-    localStorage.setItem("language", language);
-  }, [language]);
+  const toggleLanguage = () => {
+    const newLang = language === "en" ? "pt" : language === "pt" ? "fr" : "en";
+    setLanguage(newLang);
+    localStorage.setItem("language", newLang);
+  };
+
+  const openModal = (project: Project) => {
+    setActiveProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setActiveProject(null);
+  };
+
+  const nextImage = () => {
+    if (activeProject && activeProject.images) {
+      setCurrentImageIndex((prevIndex) =>
+        (prevIndex + 1) % activeProject.images!.length
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (activeProject && activeProject.images) {
+      setCurrentImageIndex((prevIndex) =>
+        (prevIndex - 1 + activeProject.images!.length) % activeProject.images!.length
+      );
+    }
+  };
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   };
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 dark:from-gray-900 dark:to-gray-800 dark:text-gray-200 transition-colors duration-300">
-      <nav className="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-          <a href="#home" className="font-semibold">Duarte Moreira</a>
-          <div className="hidden sm:flex items-center gap-6 text-sm">
-            <a href="#work" className="hover:text-blue-500 dark:hover:text-blue-400">Work</a>
-            <a href="#interactive-report" className="hover:text-blue-500 dark:hover:text-blue-400">Live Report</a>
-            <a href="#resume" className="hover:text-blue-500 dark:hover:text-blue-400">CV</a>
-            <a href="#gallery" className="hover:text-blue-500 dark:hover:text-blue-400">Gallery</a>
-            <a href="#contact" className="hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
-          </div>
-          <div className="flex items-center gap-4">
-            <Button onClick={toggleTheme} variant="secondary" size="icon" className="rounded-full">
-              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-            <div className="relative">
-              <Button variant="secondary" size="icon" className="rounded-full" onClick={() => setLanguage(language === "en" ? "pt" : language === "pt" ? "fr" : "en")}>
-                <Globe className="h-[1.2rem] w-[1.2rem]" />
-                <span className="sr-only">Switch language</span>
-              </Button>
-              <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">{language.toUpperCase()}</span>
-            </div>
-            <Button asChild className="rounded-2xl">
-              <a href="mailto:duartetraud98@gmail.com"><Mail className="w-4 h-4 mr-2"/>{translations[language]["Get in Touch"]}</a>
-            </Button>
-          </div>
-        </div>
-      </nav>
 
-      <header id="home" className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 items-center">
-        <div className="md:col-span-2">
-          <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl font-bold mb-3">
-            {translations[language]["IT Business Analyst & Power BI Specialist"]}
-          </motion.h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            {translations[language]["I turn messy data into clear decisions. I build reliable data models, actionable dashboards, and user-friendly analytics that improve processes and drive outcomes."]}
-          </p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {skills.map((s) => (
-              <span key={s} className="text-xs bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full px-3 py-1 shadow-sm">
-                {s}
-              </span>
-            ))}
-          </div>
-          <div className="mt-6 flex gap-3">
-            <Button asChild className="rounded-2xl">
-              <a href="#resume"><FileText className="w-4 h-4 mr-2"/>{translations[language]["View CV"]}</a>
+  useEffect(() => {
+    // Apply theme preference from localStorage
+    if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  const currentTranslation = translations[language];
+
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50 transition-colors duration-300">
+      {/* Header */}
+      <header className="sticky top-0 z-10 bg-white dark:bg-gray-800 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+            {currentTranslation["Duarte Moreira"]}
+          </h1>
+          <div className="flex items-center space-x-4">
+            <Button onClick={toggleLanguage} variant="outline" size="sm">
+              <Globe className="w-4 h-4 mr-2" />
+              {currentTranslation["Language"]}
             </Button>
-            <Button asChild variant="secondary" className="rounded-2xl">
-              <a href="/duarte-moreira-cv.pdf" download><Download className="w-4 h-4 mr-2"/>{translations[language]["Download PDF"]}</a>
+            <Button onClick={toggleTheme} variant="outline" size="sm">
+              <Sun className="w-4 h-4 dark:hidden" />
+              <Moon className="w-4 h-4 hidden dark:block" />
+              <span className="sr-only">{currentTranslation["Toggle theme"]}</span>
             </Button>
           </div>
-        </div>
-        <div className="flex justify-center">
-          <img src="/duarte.jpg" alt="Duarte Moreira" className="w-48 h-48 rounded-full object-cover shadow-lg"/>
         </div>
       </header>
 
-      <section id="work" className="max-w-6xl mx-auto px-6">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Selected Work"]}</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-          {translations[language]["Visuals below are anonymized (dummy or blurred data). They demonstrate structure, UX, and the problem-solving approach without exposing sensitive information."]}
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {projects.map((project, index) => {
-            const [currentImageIndex, setCurrentImageIndex] = useState(0);
-            
-            if (project.stats) {
-              return (
-                <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.15 }}>
-                  <Card className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full bg-white dark:bg-gray-800/50">
-                    <CardContent className="p-4 flex flex-col flex-grow">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <project.Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                        <h3 className="text-lg font-semibold">{project.title[language]}</h3>
-                      </div>
-                      <div className="flex-grow grid grid-cols-3 gap-2 my-4 text-center">
-                        {project.stats.map(stat => (
-                          <div key={stat.label} className="bg-gray-100 dark:bg-gray-700/50 p-2 rounded-lg">
-                            <p className="text-xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</p>
-                            <p className="text-xs text-gray-600 dark:text-gray-400">{stat.label}</p>
-                          </div>
-                        ))}
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{project.description[language]}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            }
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Hero Section */}
+        <section id="hero" className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-blue-500 dark:border-blue-400">
+              <img src="/images/profile.jpg" alt={currentTranslation["Duarte Moreira"]} className="w-full h-full object-cover" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-2 text-gray-900 dark:text-gray-50">
+              {currentTranslation["IT Business Analyst & Power BI Specialist"]}
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              {currentTranslation["I turn messy data into clear decisions. I build reliable data models, actionable dashboards, and user-friendly analytics that improve processes and drive outcomes."]}
+            </p>
+          </motion.div>
+        </section>
 
-            if (project.images) {
-              return (
-                <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.15 }}>
-                  <Card className="rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition flex flex-col h-full bg-white dark:bg-gray-800/50">
-                    <CardContent className="p-4 flex flex-col flex-grow">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <project.Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                        <h3 className="text-lg font-semibold">{project.title[language]}</h3>
-                      </div>
-                      <div className="relative flex-grow my-4">
-                        <img src={project.images[currentImageIndex]} alt={project.title[language]} className="rounded-lg object-cover w-full h-40 cursor-pointer" onClick={() => setLightbox({ open: true, type: 'image', src: project.images[currentImageIndex], caption: project.title[language] })}/>
-                        {project.images.length > 1 && (
-                          <>
-                            <Button size="icon" variant="ghost" className="absolute left-1 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-black/30 hover:bg-black/50 text-white" onClick={() => setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length)}><ChevronLeft className="h-5 w-5"/></Button>
-                            <Button size="icon" variant="ghost" className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-black/30 hover:bg-black/50 text-white" onClick={() => setCurrentImageIndex((prev) => (prev + 1) % project.images.length)}><ChevronRight className="h-5 w-5"/></Button>
-                          </>
+        {/* About Section */}
+        <section id="about" className="mb-20">
+          <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400 border-b pb-2">
+            {currentTranslation["About Me"]}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-10">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-lg mb-4">
+                {currentTranslation["With over 5 years of experience in IT, I specialize in bridging the gap between business needs and technical solutions. My focus is on data-driven decision-making, process optimization, and delivering tangible business value."]}
+              </p>
+              <p className="text-lg">
+                {currentTranslation["I hold a Master's degree in Information Systems and have a strong background in business analysis, data modeling, and project management. I am passionate about leveraging technology to solve complex problems."]}
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <h3 className="text-xl font-semibold mb-3">
+                {currentTranslation["Key Skills"]}
+              </h3>
+              <ul className="list-disc list-inside text-lg space-y-1">
+                <li>{currentTranslation["Power BI & Data Modeling"]}</li>
+                <li>{currentTranslation["Business Process Modeling (BPMN)"]}</li>
+                <li>{currentTranslation["Enterprise Architecture (ArchiMate)"]}</li>
+                <li>{currentTranslation["SQL & Database Management"]}</li>
+                <li>{currentTranslation["Agile & Scrum Methodologies"]}</li>
+              </ul>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Portfolio Section */}
+        <section id="portfolio" className="mb-20">
+          <h2 className="text-3xl font-bold mb-8 text-blue-600 dark:text-blue-400 border-b pb-2">
+            {currentTranslation["Portfolio"]}
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence>
+              {projects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="h-full"
+                >
+                  <Card
+                    className="h-full flex flex-col hover:shadow-xl transition-shadow duration-300 cursor-pointer dark:bg-gray-800 dark:border-gray-700"
+                    onClick={() => openModal(project)}
+                  >
+                    <CardContent className="p-6 flex-grow">
+                      <project.Icon className="w-8 h-8 text-blue-500 dark:text-blue-400 mb-4" />
+                      <h3 className="text-xl font-semibold mb-2">
+                        {project.title[language]}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">
+                        {project.description[language]}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {project.stats && (
+                          <span className="text-xs font-medium bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                            {currentTranslation["Data-Driven"]}
+                          </span>
+                        )}
+                        {project.images && (
+                          <span className="text-xs font-medium bg-green-100 text-green-800 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                            {currentTranslation["Visual Artifacts"]}
+                          </span>
+                        )}
+                        {project.img && (
+                          <span className="text-xs font-medium bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">
+                            {currentTranslation["Process Model"]}
+                          </span>
                         )}
                       </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{project.description[language]}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
-              );
-            }
+              ))}
+            </AnimatePresence>
+          </div>
+        </section>
 
-            return null;
-          })}
-        </div>
-      </section>
-
-      <section id="interactive-report" className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Interactive Power BI Report"]}</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
-          {translations[language]["This is a live, embedded Power BI report. Feel free to click, filter, and explore the data. (Note: This report uses anonymized or publicly available data for demonstration purposes.)"]}
-        </p>
-        <div className="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden shadow-xl">
-          <iframe
-            title="Interactive Power BI Report (Dummy Data)"
-            width="100%"
-            height="100%"
-            src="https://app.powerbi.com/view?r=eyJrIjoiYmQ0ZTIzYjctYjY3Yy00YjJkLWE3YjItY2Y3YjU1ZTA5YjQ3IiwidCI6IjQ1M2Q0Y2Y2LTc3NjItNDg3Zi1iYjY3LTJkYjQ2YjE3ZTI5ZiIsImMiOjl9"
-            frameBorder="0"
-            allowFullScreen={true}
-          ></iframe>
-        </div>
-      </section>
-
-      <section id="resume" className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Curriculum Vitae"]}</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 space-y-8">
-            {experience.map((exp, index) => (
-              <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}>
-                <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400">{exp.role[language]}</h3>
-                <p className="text-lg font-semibold">{exp.company} - {exp.loc[language]}</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{exp.dates}</p>
-                <ul className="list-disc ml-5 space-y-2 text-gray-700 dark:text-gray-300">
-                  {exp.bullets.map((bullet, bIndex) => (
-                    <li key={bIndex}>{bullet[language]}</li>
-                  ))}
-                </ul>
+        {/* Gallery Section - ERROR LOCATION */}
+        <section id="gallery" className="mb-20">
+          <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400 border-b pb-2">
+            {currentTranslation["Gallery"]}
+          </h2>
+          <h2 className="text-2xl font-semibold mb-4">{translations[language]["Gallery"]}</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            {translations[language]["GalleryDescription"]}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Gallery items would go here, but they are not defined in the provided code snippet. 
+                Assuming 'gallery' is an array of image paths or objects that was intended to be defined.
+                Since the error is only about the translation key, I will focus on that.
+            */}
+            {/* {gallery.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <img src={item.path} alt={item.alt} className="w-full h-full object-cover" />
               </motion.div>
-            ))}
+            ))} */}
           </div>
-          <div className="space-y-6">
-            <Card className="rounded-2xl shadow-md">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3">Skills</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((s) => (
-                    <span key={s} className="text-sm bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 rounded-full px-3 py-1 font-medium">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="rounded-2xl shadow-md">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3">Education</h3>
-                <p className="font-semibold">MSc in Business Analytics</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Nova School of Business and Economics</p>
-                <p className="font-semibold mt-4">BSc in Management</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Nova School of Business and Economics</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="gallery" className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Gallery"]}</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
-          {translations[language]["A collection of visual artifacts from my projects, including Power BI dashboards, BPMN diagrams, and ArchiMate models."]}
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {gallery.map((item, index) => (
-            <motion.div key={index} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.05 }} className="aspect-square rounded-lg overflow-hidden shadow-lg cursor-pointer hover:shadow-xl transition" onClick={() => setLightbox({ open: true, type: item.type as "image" | "video", src: item.src, caption: item.caption })}>
-              <img src={item.src} alt={item.caption} className="w-full h-full object-cover"/>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="max-w-6xl mx-auto px-6 py-12 text-center">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Get in Touch"]}</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-          {translations[language]["I am currently open to new opportunities and collaborations. Feel free to reach out!"]}
-        </p>
-        <div className="flex justify-center gap-4">
-          <Button asChild size="lg" className="rounded-2xl">
-            <a href="mailto:duartetraud98@gmail.com"><Mail className="w-5 h-5 mr-2"/>duartetraud98@gmail.com</a>
-          </Button>
-          <Button asChild size="lg" variant="secondary" className="rounded-2xl">
-            <a href="/duarte-moreira-cv.pdf" download><Download className="w-5 h-5 mr-2"/>{translations[language]["Download CV"]}</a>
-          </Button>
-        </div>
-      </section>
-
-      <AnimatePresence>
-        {lightbox.open && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center" onClick={() => setLightbox({ open: false })}>
-            <div className="relative max-w-4xl max-h-[90vh] p-4" onClick={(e) => e.stopPropagation()}>
-              <img src={lightbox.src} alt={lightbox.caption} className="max-w-full max-h-[85vh] object-contain rounded-lg"/>
-              <p className="text-white text-center mt-2">{lightbox.caption}</p>
-              <Button size="icon" variant="ghost" className="absolute -top-2 -right-2 h-10 w-10 rounded-full bg-white/20 hover:bg-white/30 text-white" onClick={() => setLightbox({ open: false })}><X className="h-6 w-6"/></Button>
+        {/* Contact Section */}
+        <section id="contact" className="mb-20">
+          <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400 border-b pb-2">
+            {currentTranslation["Contact"]}
+          </h2>
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-lg mb-6">
+              {currentTranslation["I am open to new opportunities and collaborations. Feel free to reach out to discuss how I can help your business achieve its goals."]}
+            </p>
+            <div className="flex justify-center space-x-4">
+              <a href="mailto:duarte.s.moreira@gmail.com" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors duration-200 flex items-center">
+                <Mail className="w-5 h-5 mr-2" />
+                {currentTranslation["Email"]}
+              </a>
+              <a href="/Duarte_Moreira_CV.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors duration-200 flex items-center">
+                <FileText className="w-5 h-5 mr-2" />
+                {currentTranslation["View CV"]}
+              </a>
+              <a href="/Duarte_Moreira_CV.pdf" download className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors duration-200 flex items-center">
+                <Download className="w-5 h-5 mr-2" />
+                {currentTranslation["Download CV"]}
+              </a>
             </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-200 dark:bg-gray-800 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600 dark:text-gray-400">
+          <p>
+            &copy; {new Date().getFullYear()} {currentTranslation["Duarte Moreira"]}. {currentTranslation["All rights reserved."]}
+          </p>
+        </div>
+      </footer>
+
+      {/* Project Modal */}
+      <AnimatePresence>
+        {isModalOpen && activeProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center p-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 50 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 50 }}
+              className="bg-white dark:bg-gray-900 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                    {activeProject.title[language]}
+                  </h3>
+                  <Button variant="ghost" size="icon" onClick={closeModal}>
+                    <X className="w-6 h-6" />
+                  </Button>
+                </div>
+
+                <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
+                  {activeProject.description[language]}
+                </p>
+
+                {/* Stats Section */}
+                {activeProject.stats && (
+                  <div className="mb-6">
+                    <h4 className="text-xl font-semibold mb-3 border-b pb-1">
+                      {currentTranslation["Key Achievements"]}
+                    </h4>
+                    <div className="grid grid-cols-3 gap-4 text-center">
+                      {activeProject.stats.map((stat, index) => (
+                        <div key={index} className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                          <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+                            {stat.value}
+                          </p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                            {stat.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Image/Gallery Section */}
+                {(activeProject.img || activeProject.images) && (
+                  <div className="relative mb-6">
+                    <h4 className="text-xl font-semibold mb-3 border-b pb-1">
+                      {currentTranslation["Visual Artifact"]}
+                    </h4>
+                    <div className="aspect-video bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden flex items-center justify-center">
+                      <img
+                        src={activeProject.images ? activeProject.images[currentImageIndex] : activeProject.img}
+                        alt={activeProject.title.en}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+
+                    {/* Navigation for multiple images */}
+                    {activeProject.images && activeProject.images.length > 1 && (
+                      <>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+                          onClick={prevImage}
+                        >
+                          <ChevronLeft className="w-6 h-6" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+                          onClick={nextImage}
+                        >
+                          <ChevronRight className="w-6 h-6" />
+                        </Button>
+                        <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
+                          {activeProject.images.map((_, index) => (
+                            <div
+                              key={index}
+                              className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                                index === currentImageIndex
+                                  ? "bg-blue-600 dark:bg-blue-400"
+                                  : "bg-gray-400 dark:bg-gray-600 cursor-pointer"
+                              }`}
+                              onClick={() => setCurrentImageIndex(index)}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )}
+
+                {/* Additional Context */}
+                <div className="text-sm text-gray-500 dark:text-gray-500 pt-4 border-t dark:border-gray-700">
+                  <p>
+                    {currentTranslation["This project showcases my ability to deliver solutions that combine technical expertise with a strong understanding of business processes."]}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

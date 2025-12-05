@@ -244,7 +244,7 @@ export default function Portfolio() {
     setTheme(theme === "light" ? "dark" : "light");
   };
   
-  return (urn (
+  return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 dark:from-gray-900 dark:to-gray-800 dark:text-gray-200 transition-colors duration-300">
       <nav className="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -293,10 +293,10 @@ export default function Portfolio() {
           </div>
           <div className="mt-6 flex gap-3">
             <Button asChild className="rounded-2xl">
-              <a href="#resume"><FileText className="w-4 h-4 mr-2"/>{{translations[language]["View CV"]}</a>
+              <a href="#resume"><FileText className="w-4 h-4 mr-2"/>{translations[language]["View CV"]}</a>
             </Button>
             <Button asChild variant="secondary" className="rounded-2xl">
-              <a href="/duarte-moreira-cv.pdf" download><Download className="w-4 h-4 mr-2"/>{translations[language]["Download PDF"]}}</a>
+              <a href="/duarte-moreira-cv.pdf" download><Download className="w-4 h-4 mr-2"/>{translations[language]["Download PDF"]}</a>
             </Button>
           </div>
         </div>
@@ -306,7 +306,7 @@ export default function Portfolio() {
       </header>
 
       <section id="work" className="max-w-6xl mx-auto px-6">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Selected Work"]}}</h2>
+        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Selected Work"]}</h2>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
           {translations[language]["Visuals below are anonymized (dummy or blurred data). They demonstrate structure, UX, and the problem-solving approach without exposing sensitive information."]}
         </p>
@@ -369,7 +369,7 @@ export default function Portfolio() {
       </section>
 
       <section id="interactive-report" className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Interactive Power BI Report"]}</h2>
+        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Interactive Report"]}</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
           {translations[language]["This section demonstrates my ability to integrate live, interactive Power BI reports into a web environment. The report below is a dummy example showcasing data visualization and filtering capabilities."]}
         </p>
@@ -386,7 +386,7 @@ export default function Portfolio() {
       </section>
 
       <section id="resume" className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Curriculum Vitae"]}}</h2>
+        <h2 className="text-2xl font-semibold mb-4">{translations[language]["Curriculum Vitae"]}</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-8">
             {experience.map((exp, index) => (
@@ -452,7 +452,7 @@ export default function Portfolio() {
             <a href="mailto:duartetraud98@gmail.com"><Mail className="w-5 h-5 mr-2"/>duartetraud98@gmail.com</a>
           </Button>
           <Button asChild size="lg" variant="secondary" className="rounded-2xl">
-            <a href="/duarte-moreira-cv.pdf" download><Download className="w-5 h-5 mr-2"/>{translations[language]["Download CV"]}}</a>
+            <a href="/duarte-moreira-cv.pdf" download><Download className="w-5 h-5 mr-2"/>{translations[language]["Download CV"]}</a>
           </Button>
         </div>
       </section>

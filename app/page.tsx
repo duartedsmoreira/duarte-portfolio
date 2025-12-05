@@ -176,7 +176,7 @@ export default function Portfolio() {
       <header className="sticky top-0 z-10 bg-white dark:bg-gray-800 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-            {currentTranslation["Duarte Moreira"]}
+            {currentTranslation["AuthorName"]}
           </h1>
           <div className="flex items-center space-x-4">
             <Button onClick={toggleLanguage} variant="outline" size="sm">
@@ -201,7 +201,7 @@ export default function Portfolio() {
             transition={{ duration: 0.5 }}
           >
             <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-blue-500 dark:border-blue-400">
-              <img src="/images/profile.jpg" alt={currentTranslation["Duarte Moreira"]} className="w-full h-full object-cover" />
+              <img src="/images/profile.jpg" alt={currentTranslation["AuthorName"]} className="w-full h-full object-cover" />
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold mb-2 text-gray-900 dark:text-gray-50">
               {currentTranslation["IT Business Analyst & Power BI Specialist"]}
@@ -364,7 +364,7 @@ export default function Portfolio() {
       <footer className="bg-gray-200 dark:bg-gray-800 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600 dark:text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} {currentTranslation["Duarte Moreira"]}. {currentTranslation["All rights reserved."]}
+            &copy; {new Date().getFullYear()} {currentTranslation["AuthorName"]}. {currentTranslation["All rights reserved."]}
           </p>
         </div>
       </footer>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { BarChart3, Activity, Mail, Download, FileText, X, ChevronLeft, ChevronRight, Sun, Moon, Workflow, Target, Layers, Globe } from "lucide-react";
 import { translations, Language } from "./translations";
 
+// Define a strict type for our project objects
 type Project = {
   title: { en: string; pt: string; fr: string };
   description: { en: string; pt: string; fr: string };
@@ -36,7 +37,7 @@ export default function Portfolio() {
       description: {
         en: "Designed and launched an automated system to track Service-Level Agreements, replacing manual reporting and providing real-time KPI monitoring for error tickets.",
         pt: "Concebi e lancei um sistema automatizado para monitorizar Acordos de Nível de Serviço, substituindo relatórios manuais e fornecendo monitorização de KPI em tempo real para tickets de erro.",
-        fr: "Conçu et lancé un système automatisé pour suivre les Accords de Niveau de Service, remplaçant les rapports manuels et fournissant une surveillance KPI en temps réel pour les tickets d'erreur.",
+        fr: "Conçu et lancé un système automatisé pour suivre les Accords de Niveau de Service, remplaçant les rapports manuels et fournissant une surveillance KPI en temps réel pour les tickets d\'erreur.",
       },
       Icon: Target,
       stats: [
@@ -54,7 +55,7 @@ export default function Portfolio() {
       description: {
         en: "Developed and managed a suite of Power BI reports for operational monitoring, covering everything from high-level KPIs to detailed drill-through analysis.",
         pt: "Desenvolvi e geri um conjunto de relatórios Power BI para monitorização operacional, cobrindo desde KPIs de alto nível até análises detalhadas de drill-through.",
-        fr: "Développé et géré une suite de rapports Power BI pour la surveillance opérationnelle, couvrant tout, des KPI de haut niveau à l'analyse détaillée par exploration.",
+        fr: "Développé et géré une suite de rapports Power BI pour la surveillance opérationnelle, couvrant tout, des KPI de haut niveau à l\'analyse détaillée par exploration.",
       },
       images: [
         "/powerbi-report-1.png",
@@ -74,7 +75,7 @@ export default function Portfolio() {
       description: {
         en: "Designed and documented core business processes using BPMN to clarify workflows, identify bottlenecks, and standardize operations across departments.",
         pt: "Concebi e documentei processos de negócio centrais usando BPMN para clarificar fluxos de trabalho, identificar gargalos e padronizar operações entre departamentos.",
-        fr: "Conçu et documenté les processus métier de base à l'aide de BPMN pour clarifier les flux de travail, identifier les goulots d'étranglement et standardiser les opérations entre les départements.",
+        fr: "Conçu et documenté les processus métier de base à l\'aide de BPMN pour clarifier les flux de travail, identifier les goulots d\'étranglement et standardiser les opérations entre les départements.",
       },
       images: [
         "/bpmn-1.png",
@@ -86,12 +87,12 @@ export default function Portfolio() {
       title: {
         en: "Enterprise Architecture Modeling",
         pt: "Modelagem de Arquitetura Empresarial",
-        fr: "Modélisation d'Architecture d'Entreprise",
+        fr: "Modélisation d\'Architecture d\'Entreprise",
       },
       description: {
         en: "Modeled business processes and linked them to the underlying application and technology layers using ArchiMate to create a holistic view of the enterprise.",
         pt: "Modelei processos de negócio e liguei-os às camadas de aplicação e tecnologia subjacentes usando ArchiMate para criar uma visão holística da empresa.",
-        fr: "Modélisé les processus métier et les a liés aux couches d'application et de technologie sous-jacentes à l'aide d'ArchiMate pour créer une vue holistique de l'entreprise.",
+        fr: "Modélisé les processus métier et les a liés aux couches d\'application et de technologie sous-jacentes à l\'aide d\'ArchiMate pour créer une vue holistique de l\'entreprise.",
       },
       images: [
         "/archimate-onboarding.png",
@@ -119,17 +120,17 @@ export default function Portfolio() {
         {
           en: "Managed three Power BI reports; migrated data from Excel to CRM with accurate mapping.",
           pt: "Geri três relatórios Power BI; migrei dados do Excel para o CRM com mapeamento preciso.",
-          fr: "Géré trois rapports Power BI; migré des données d'Excel vers le CRM avec un mappage précis.",
+          fr: "Géré trois rapports Power BI; migré des données d\'Excel vers le CRM avec un mappage précis.",
         },
         {
           en: "Monitored error tickets and SLAs; validated data against Solarlog API.",
           pt: "Monitorizei tickets de erro e SLAs; validei dados contra a API Solarlog.",
-          fr: "Surveillé les tickets d'erreur et les SLA; validé les données par rapport à l'API Solarlog.",
+          fr: "Surveillé les tickets d\'erreur et les SLA; validé les données par rapport à l\'API Solarlog.",
         },
         {
           en: "Analyzed Google Analytics for web/mobile; led data integration, billing & onboarding.",
           pt: "Analisei o Google Analytics para web/mobile; liderei a integração de dados, faturação e onboarding.",
-          fr: "Analysé Google Analytics pour le web/mobile; dirigé l'intégration des données, la facturation et l'intégration.",
+          fr: "Analysé Google Analytics pour le web/mobile; dirigé l\'intégration des données, la facturation et l\'intégration.",
         },
       ],
     },
@@ -150,7 +151,7 @@ export default function Portfolio() {
         {
           en: "Gathered requirements and executed test cases for a banking insurance program.",
           pt: "Reuni requisitos e executei casos de teste para um programa de seguros bancários.",
-          fr: "Recueilli les exigences et exécuté les cas de test pour un programme d'assurance bancaire.",
+          fr: "Recueilli les exigences et exécuté les cas de test pour un programme d\'assurance bancaire.",
         },
         {
           en: "Owned Jira/Confluence test documentation and daily standups to unblock issues.",
@@ -381,3 +382,5 @@ export default function Portfolio() {
     </div>
   );
 }
+
+
